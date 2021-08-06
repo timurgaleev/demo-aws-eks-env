@@ -16,6 +16,12 @@ variable "availability_zones" {
   description = "Availability zones for project, minimum 2"
 }
 
+variable "domain_name" {
+  default     = "godapp.de"
+  type        = string
+  description = "Domain name"
+}
+
 variable "project" {
   default     = "god-prod"
   type        = string

@@ -12,6 +12,7 @@ module "kubernetes" {
   source     = "github.com/GOD-mbh/god-terraform-eks"
 
   project            = local.project
+  domains            = local.domain
   availability_zones = var.availability_zones
   cluster_name       = local.cluster_name
   vpc_id             = module.network.vpc_id
