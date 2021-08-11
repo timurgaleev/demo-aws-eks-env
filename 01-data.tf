@@ -7,3 +7,9 @@ data "aws_eks_cluster_auth" "cluster" {
 }
 
 data "aws_caller_identity" "current" {}
+
+data "aws_route53_zone" "this" {
+  # name         = "edu.provectus.io."
+  zone_id      = var.zone_id
+  private_zone = false
+}

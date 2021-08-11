@@ -26,3 +26,13 @@ module "kubernetes" {
   ]
   user_arns = []
 }
+
+module "external_dns" {
+  depends_on = [module.kubernetes]
+
+  source       = "github.com/GOD-mbh/god-terraform-dns"
+  cluster_name = module.kubernetes.cluster_name
+  mainzoneid   = data.aws_route53_zone.this.zone_id
+  hostedzones  = local.domain
+  tags         = local.tags
+}
