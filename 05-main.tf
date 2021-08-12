@@ -43,3 +43,14 @@ module "nginx-ingress" {
   conf         = {}
   tags         = local.tags
 }
+
+module "letsencrypt" {
+  depends_on = []
+
+  source       = "github.com/GOD-mbh/god-terraform-letsencrypt"
+  cluster_name = module.kubernetes.cluster_name
+  vpc_id       = module.network.vpc_id
+  email        = "timur.galeev@god.de"
+  zone_id      = module.external_dns.zone_id
+  domains      = local.domain
+}
