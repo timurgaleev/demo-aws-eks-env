@@ -36,3 +36,10 @@ module "external_dns" {
   hostedzones  = local.domain
   tags         = local.tags
 }
+
+module "nginx-ingress" {
+  source       = "github.com/GOD-mbh/god-terraform-controller"
+  cluster_name = module.kubernetes.cluster_name
+  conf         = {}
+  tags         = local.tags
+}
