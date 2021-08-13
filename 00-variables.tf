@@ -29,7 +29,7 @@ variable "project" {
 }
 
 variable "zone_id" {
-  default     = "Z01947971XH87F079JF0L"
+  default     = "Z01947971XH87F079JF0L" # Z04917561CQAI9UAF27D6
   type        = string
-  description = "Default zone id for root domain" #like Z04917561CQAI9UAF27D6
+  description = "Default zone id for root domain"
 }
