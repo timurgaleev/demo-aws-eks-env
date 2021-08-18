@@ -1,0 +1,15 @@
+"apiVersion": "cert-manager.io/v1alpha2"
+"kind": "ClusterIssuer"
+"metadata":
+  "name": "letsencrypt-prod"
+"spec":
+  "acme":
+    "email": "timur.galeev@god.de"
+    "privateKeySecretRef":
+      "name": "letsencrypt-prod"
+    "server": "https://acme-v02.api.letsencrypt.org/directory"
+    "solvers":
+    - "dns01":
+        "route53":
+          "hostedZoneID": "Z0789127DW78PESKQRMW"
+          "region": "eu-north-1"
