@@ -39,6 +39,6 @@ terraform {
     key            = "terraform/states/eks.tfstate"
     region         = "eu-north-1"
     encrypt        = true
-    dynamodb_table = "tfstate_god"
+    dynamodb_table = "tfstate_prod"
   }
 }

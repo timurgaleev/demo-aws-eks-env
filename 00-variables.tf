@@ -17,13 +17,13 @@ variable "availability_zones" {
 }
 
 variable "domain_name" {
-  default     = "godapp.de"
+  default     = "eks.timuzu.com"
   type        = string
   description = "Domain name"
 }
 
 variable "project" {
-  default     = "god-prod"
+  default     = "prod"
   type        = string
   description = "A value that will be used in annotations and tags to identify resources with the `Project` key"
 }

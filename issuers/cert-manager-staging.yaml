@@ -4,12 +4,12 @@
   "name": "letsencrypt-staging"
 "spec":
   "acme":
-    "email": "timur.galeev@god.de"
+    "email": "timur_galeev@outlook.com"
     "privateKeySecretRef":
       "name": "letsencrypt-staging"
     "server": "https://acme-staging-v02.api.letsencrypt.org/directory"
     "solvers":
-    - "dns01":
-        "route53":
-          "hostedZoneID": "Z0789127DW78PESKQRMW"
-          "region": "eu-north-1"
+      - "dns01":
+          "route53":
+            "hostedZoneID": "Z0789127DW78PESKQRMW"
+            "region": "eu-north-1"

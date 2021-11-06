@@ -1,5 +1,5 @@
 module "network" {
-  source = "github.com/GOD-mbh/god-terraform-vpc"
+  source = "github.com/timurgaleev/demo-terraform-vpc"
 
   availability_zones = var.availability_zones
   project            = local.project
@@ -10,7 +10,7 @@ module "network" {
 module "kubernetes" {
   depends_on = [module.network]
 
-  source = "github.com/GOD-mbh/god-terraform-eks"
+  source = "github.com/timurgaleev/demo-terraform-eks"
 
   project            = local.project
   domains            = local.domain
@@ -36,7 +36,7 @@ module "kubernetes" {
 module "external_dns" {
   depends_on = [module.kubernetes]
 
-  source = "github.com/GOD-mbh/god-terraform-dns"
+  source = "github.com/timurgaleev/demo-terraform-dns"
 
   cluster_name = module.kubernetes.cluster_name
   mainzoneid   = data.aws_route53_zone.this.zone_id
@@ -47,7 +47,7 @@ module "external_dns" {
 module "nginx-ingress" {
   depends_on = []
 
-  source = "github.com/GOD-mbh/god-terraform-controller"
+  source = "github.com/timurgaleev/demo-terraform-controller"
 
   cluster_name = module.kubernetes.cluster_name
   conf         = {}
@@ -57,11 +57,11 @@ module "nginx-ingress" {
 module "letsencrypt" {
   depends_on = []
 
-  source = "github.com/GOD-mbh/god-terraform-letsencrypt"
+  source = "github.com/timurgaleev/demo-terraform-letsencrypt"
 
   cluster_name = module.kubernetes.cluster_name
   vpc_id       = module.network.vpc_id
-  email        = "timur.galeev@god.de"
+  email        = "timur_galeev@outlook.com"
   zone_id      = module.external_dns.zone_id
   domains      = local.domain
 }
@@ -69,7 +69,7 @@ module "letsencrypt" {
 # module "grafana" {
 #   depends_on = []
 
-#   source = "github.com/GOD-mbh/god-terraform-grafana"
+#   source = "github.com/timurgaleev/demo-terraform-grafana"
 
 #   cluster_name     = module.kubernetes.cluster_name
 #   domains          = local.domain
